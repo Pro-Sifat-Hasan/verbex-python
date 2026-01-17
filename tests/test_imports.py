@@ -1,8 +1,6 @@
-import os
-
 import verbex
-from verbex.api_keys import APIKeys
 from verbex.agents import AIAgents, PostCallAnalysis
+from verbex.api_keys import APIKeys
 from verbex.calls import Calls
 from verbex.core import CoreClient, HTTPClient, VerbexAPIError, VerbexError
 from verbex.knowledge_bases import KnowledgeBases
@@ -31,7 +29,7 @@ def test_imports_and_symbols():
 
 
 def test_sdk_initialization_uses_env_key(monkeypatch):
-    monkeypatch.setenv('VERBEX_API_KEY', 'test-key')
+    monkeypatch.setenv("VERBEX_API_KEY", "test-key")
     client = verbex.Verbex()
     assert client.ai_agents is not None
     assert client.postcall_analysis is not None

@@ -6,11 +6,14 @@ on:
 
 permissions:
   contents: read
-  id-token: write  # required for OIDC trusted publishing
+  id-token: write
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
+
+    environment: pypi   # ✅ THIS is what you’re missing
+
     steps:
       - uses: actions/checkout@v4
 
@@ -24,7 +27,5 @@ jobs:
           python -m pip install build
           python -m build
 
-      - name: Publish to PyPI (OIDC)
+      - name: Publish
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          packages-dir: dist/

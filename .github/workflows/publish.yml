@@ -31,7 +31,7 @@ jobs:
       - name: Build distribution
         run: python -m build
 
-      # 5️⃣ Publish to PyPI (existing langchat project)
+      # 5️⃣ Publish to PyPI (existing verbex-sdk project)
       - name: Upload to PyPI
         env:
           TWINE_USERNAME: __token__

@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+
+if ! command -v ty >/dev/null 2>&1; then
+  echo "ty is not installed. Install it to push." >&2
+  exit 1
+fi
+
+ty check
